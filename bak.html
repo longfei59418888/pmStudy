@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+  <h5>1、es5/es6/es7/es8有哪些变化？</h5>
+  <h6>1、es5 的发布时间是2009年，主要是对Object、Array、Function的一些扩展</>
+  <p>Object 静态方法：is(a,b) 判断两个对象是否是一个同一个对象(比较内存地址)</p>
+  <p>Object 静态方法：isExtensible(obj) 判断对象是否可扩展</p>
+  <p>Object 静态方法：isFrozen(obj) 判断对象是否冻结</p>
+  <p>Object 静态方法：preventExtensions(obj) 设置对象不能扩展</p>
+  <hr/>
+  <p>Object 静态方法：assign(obj,obj) 扩展对象，浅扩展</p>
+  <p>Object 静态方法：create(obj) 创建一个新对象</p>
+  <p>Object 静态方法：entries(obj) 返回对象的数组</p>
+  <p>Object 静态方法：values(obj) 获取对象所有的value值s</p>
+  <p>Object 静态方法：defineProperty(obj,prop,descriptor) 定义或修改对象某个属性，并返回新的对象</p>
+  <p>Object 静态方法：getOwnPropertyNames(obj) 获取某一个对象的所有自有属性名称</p>
+  <hr/>
+  <p>Object 静态方法：getPrototypeOf(obj) 返回某一个对象的原型</p>
+  <p>Object 静态方法：setPropertyOf(obj,property) 设置某一个对象的原型</p>
+  <hr/>
+  <p>Array.prototype.watch 监听某一个属性</p>
+  <p>Array.prototype.toString() [1,2,3,4] --> 1,2,3,4</p>
+  <p>Object.prototype.toString() {} --> [object Object]/p>
+  <p>Function.prototype.toString() {} --> function 的字符串形式</p>
+  <hr/>
+  <h6>2、es6 的发布时间2015年，主要类、模块化、箭头函数、函数默认值、字符串模版、promise 等</h6>
+  <p>类: 用 class 来声明，extend 来实现继承</p>
+  <p>类: constructor 来初始化，相当于之前函数执行等部分，且需执行 super 函数</p>
+  <p>模块化: export 实现导出，import 实现引用</p>
+  <p>箭头函数: this 指向包含它的对象</p>
+  <p>延展操作符: {...options}</p>
+  <p>let/const、变量解构、字符串模版、新增symbol/map/set/promise/proxy、模块化、箭头函数等</p>
+  <hr/>
+  <h6>3、es7 的发布时间 2016 年，主要添加了 includes、指数函数</h6>
+  <h6>4、es8 的发布时间 2017 年，主要添加了 async/awite、Object.values ...</h6>
+
+  <h5>2、创建对象的方法有哪些？</h5>
+  <p>字面量方法直接创建</p>
+  <p>new 关键字创建</p>
+  <p>Object.create() 方法创建，传入继承的对象</p>
+  <h5>3、模块化和各种方式的区别</h5>
+  <p>一个文件实现某一类功能，并且其他文件可以引用这些功能</p>
+  <p>避免污染全局和命名冲突、代码容易复用和维护、方便开发和管理</p>
+  <p>commonjs 用于node端，全局主要有module、export、require、global，同步加载，安全、执行的阶段加载</p>
+  <p>Amd 对应requirejs，文件实现依赖，被依赖文件先加载，前置依赖。全局主要有 require、define</p>
+  <p>Cmd 对应seajs，文件实现依赖，就近加载，同步加载完成后执行。全局主要有 require、define</p>
+  <p>es6 编译阶段执行，只加载依赖的部分内容，主要有 export、import</p>
+  <h5>4、手写简单的promise</h5>
+  <pre>
+    class Promises{
+      constructor(func){
+        this.func = func
+      }
+      then(resolve,reject){
+        this.func(resolve,reject)
+      }
+    }
+  </pre>
+  <h5>5、手写简单的模块化</h5>
+  <p>两个全局方法 require、define</p>
+  <p>define(id,[rely],fn) 定义模块，并且可以依赖其他模块，并且返回一个对象 </p>
+  <p>require 用于加载模，并且加载后用特定的id来承载 </p>
+  <h5>6、webpack基本用法和原理</h5>
+  <p>基于 node 平台的一个对 js 的处理工具</p>
+  <p>通过配置一个entry入口，将多个文件打包成一个代码块</p>
+  <p>通过loader对在应用的模块进行预处理</p>
+  <p>通过plugin在webpack各个生命周期代码，完善loader不能完成的工作</p>
+  <h5>7、webpack基本配置</h5>
+  <p>一个入口entry/出口output</p>
+  <p>resolve 定义默认后缀名、模块位置、模块名称</p>
+  <p>module 定义加载器css-loader、file-loader 等</p>
+  <p>plugin 定义插件 definePlugin、extractTextPlugin、htmlWebpackPlugin、commonChunkPlugin，hotModuleReplacePlugin 等</p>
+  <h5>8、编写loader、plugin 原理</h5>
+  <p>loader 就是自定义一个类，接收 source ，并返回一个新的 source</p>
+  <p>plugin 一个类，在原型上面添加apply方法，且接受 compile </p>
+  <p>compile 包含了webpack配置生命周期，每个生命周期都会传入 compilation </p>
+  <p>compilation 各个阶段代码块的属性/代码  </p>
+  <h5>9、react 的优势</h5>
+  <p>运用了虚拟dao，减少了对dom操作</p>
+  <p>采用组件化开发，代码更易于复用和维护</p>
+  <p>react 规范开发模式，更便捷开发和易于代码管理</p>
+  <h5>10、创建组件的三种方法，区别</h5>
+  <p>class 继承 react component 类，有完成的生命周期以及状态</p>
+  <p>直接用函数创建 无生命周期和状态</p>
+  <p>createElement 创建</p>
+  <h5>11、生命周期</h5>
+  <p>getDefaultProps、getInitialState</p>
+  <p>componentWillMount、render、componentDidMount</p>
+  <p>componentWillReceiveProps、shouldComponentUpload</p>
+  <p>componentWillUpload、componentDidUpload</p>
+  <p>componentWillUnmount</p>
+  <h5>12、受控组件/非受控组件</h5>
+  <p>这些主要表现在 input、select、areatext 元素等</p>
+  <p>如果这些组件添加了 value 属性且值为state,则用户输入的时候，不能改变值，可以通过onchange改变state，控制输入</p>
+  <p>如果这些组件没有value值，可以则不受控制，可以用ref来或得value</p>
+  <h5>13、简述redux，redux的方法以及原理</h5>
+  <p>redux是一个状态管理工具</p>
+  <p>通过 new store 创建一个初始的状态树，并返回一个对象 store</p>
+  <p>store 方法 dispatch 触发一个action，执行reducer，来改变状态树，重新渲染改变位置</p>
+  <p>store 方法 getState 获取到状态树</p>
+  <p>store 方法 subscribe 添加一个当状态树发生改变的时候，触发的方法</p>
+  <h5>14、react-redux 简述和作用原理</h5>
+  <p>provider 用于把状态树绑定组件顶部的 context ，便于所有字节点可以得倒状态树数据</p>
+  <p>connect 将状态树上面的数据和action绑定到组件上面，一个高级组件</p>
+  <h5>15、http/http2/https</h5>
+  <p>http2与1.1区别：新的二进制传输--http1.1基于文本传输、http2基于新的二进制传输，更快</p>
+  <p>http2与1.1区别：多路复用--同一个链路请求上面带上不同id的请求</p>
+  <p>http2与1.1区别：header压缩--压缩header减少传输大小</p>
+  <p>http2与1.1区别：服务端推送--实现一些推送功能</p>
+  <p>https于1.1区别：https 在http和tcp中间添加了一层加密，先用 rsa交换密钥，再将数据通过加密后传输</p>
+  <h5>16、七层网络协议</h5>
+  <p>物理层：光纤、集线器、中继器</p>
+  <p>数据链路层：处理数字信号得到mac地址，交换机、网桥</p>
+  <p>网络层：路由器-解析ip得倒最好线路</p>
+  <p>传输层：</p>
+  <p>会话层：</p>
+  <p>表现层：</p>
+  <p>应用层：http、ftp等应用</p>
+  <h5>17、HTTP常用报文的实际应用</h5>
+  <p>请求报文-起始行：方法名 请求资源 协议版本</p>
+  <p>请求报文-首部：connection、cache-control、Accept[-langage/encoding/chartset]、cookie、if-modified-since、if-match</p>
+  <p>请求报文-请求体：输入的数据</p>
+  <p>响应报文-起始行：版本号 状态码</p>
+  <p>响应报文-首部：是否跨域、是否允许设置header、content-type</p>
+  <p>响应报文-内容：返回内容</p>
+  <p>响应报文-状态码100：正常接受传输</p>
+  <p>响应报文-状态码200：成功</p>
+  <p>响应报文-状态码300/304：重定向、直接访问缓存</p>
+  <p>响应报文-状态码400：请求错误(路径/方法/参数等)</p>
+  <p>响应报文-状态码500：服务器内部错误</p>
+  <h5>18、cdn、oss、sso以及负载均衡</h5>
+  <p>cdn：把资源放上去可以实现缓存、访问就近服务器</p>
+  <p>oss：管理静态资源工具和存放位置</p>
+  <p>sso：单点登陆</p>
+  <p>负载均横：根据服务器状态，选择最优服务器访问</p>
+  <h5>19、网络安全</h5>
+  <p>网络安全--csrf：跨站请求伪造</p>
+  <p>网络安全--csrf：利用当前浏览器用户信息，跨站访问</p>
+  <p>网络安全--csrf：控制 referer 和添加token认证</p>
+  <p>网络安全--xss：脚本注入</p>
+  <p>网络安全--xss：过滤用户输入内容</p>
+  <p>网络安全--xss：对输入的特殊内容转义</p>
+  <h5>20、前端常用开发模式</h5>
+  <p>观察者模式(订阅发布模式-标准的事件模型)</p>
+  <p>工厂模式--react.component</p>
+  <p>单利模式--redux store</p>
+  <p>代理模式--vue 的双向绑定</p>
+  <p>装饰器模式--对类或者类方法进行封装</p>
+  <h5>21、常见排序、复杂度</h5>
+  <p>冒泡排序：每次循环比较相邻对两个数，并且交换把最大数交换到末尾</p>
+  <p>选择排序：从数组开始的位置开始，每次确定一个最小值，每次循环的时候交换最小值到这个位置</p>
+  <p>插入排序：以某一个为基准设置已经排序完成的数组，循环比较并插入到这个数组</p>
+  <p>归并排序：先拆数组，然后合并成一个个排序完成的数组，然后再次合并</p>
+  <h5>22、缓存详解</h5>
+  <p>分类--浏览器：浏览器缓存又是强制缓存，缓存浏览器本地</p>
+  <p>分类--服务器：服务器缓存也是协商缓存，缓存在服务器端，</p>
+  <p>浏览器-流程：先取本地缓存，没有才会请求</p>
+  <p>浏览器-expire：失效期限</p>
+  <p>浏览器-cache-control：private客户端可以缓存</p>
+  <p>浏览器-cache-control：public代理端可以缓存</p>
+  <p>浏览器-cache-control：max-age 最大的失效时间</p>
+  <p>浏览器-cache-control：no-cache 协商取缓存</p>
+  <p>浏览器-cache-control：no-store 不缓存</p>
+  <p>服务器-流程：检测etag/if-none-match、last-modifined/last-modifined-since</p>
+  <p>服务器-etag：服务器生产唯一表示tag，放到header，再次请求时候传入if-none-match进行对比</p>
+  <p>服务器-last-modifined：最后修改时间对比，last-modifined-since在请求传入服务器进行对比</p>
+  <h5>23、三次握手</h5>
+  <p>syn --> syn+ack --> ack</p>
+  <h5>24、v8 引擎介绍</h5>
+  <p>是一个执行javascript代码的程序或者解释器</p>
+  <p>可以将javascript代码解析成标准的字节码</p>
+  <h5>25、事件循环 event loop</h5>
+  <p>javascript 是一个单线程的</p>
+  <p>javascript 循环的检查调用栈是否有要执行的代码</p>
+  <p>javascript 会将异步的代码块添加到调用栈</p>
+  <h5>26、执行上下文</h5>
+  <p>在执行javascript代码的时候，会创建一个全局的执行上下文</p>
+  <p>执行上下文中包含了内存栈和调用栈</p>
+  <p>会将所有的全局变量放到内存栈中</p>
+  <p>调用栈执行全局的代码块</p>
+  <p>当遇到函数重复上面的操作创建一个函数的上下文</p>
+  <p>函数执行完成就销毁掉掉</p>
+  <h5>27、浏览器工作原理</h5>
+  <p>组成：用户界面、浏览器引擎、渲染引擎、网络、UI后端、js解释器、数据存储</p>
+  <p>流程：获取html文档-->构建html的dom树-->构建html的rander树-->绘制rander树</p>
+  <p>解析是同步的，js下载后直接执行会阻塞html解析，async--下载和解析并行，下载后立即执行。defer--下载和解析并行，domContentLoaded后执行</p>
+  <h5>28、调用栈和内存栈</h5>
+  <p>在v8引擎加载代码的时候，会创建一个上下文，并且会将变量和函数保存到内存栈中，然后会将执行代码块放到调用栈中执行</p>
+  <h5>29、值类型和引用类型</h5>
+  <p>值类型：String、Number、Null、Undefined、Boolean、Smybal</p>
+  <p>值类型：值类型是直接将变量值存到内存栈中，分配固定的地址，保存的值不变。赋值的时候直接在内存栈中分配一个固定地址保存值</p>
+  <p>引用类型：Object、Array、Function</p>
+  <p>引用类型：引用类型是在对象的内存栈中保存一个引用的地址，该地址指向内存堆中的值。当被赋值当时候，实际是将引用地址赋值给某一个变量</p>
+  <h5>30、判断数组</h5>
+  <p>Object.prototype.toString.apply(obj) 判断结果是不是 [object Array]</p>
+  <h5>31、改变this的方法，区别</h5>
+  <p>apply方法：两个参数，第一个是 this，第二个是参数数组</p>
+  <p>call方法：多个参数，第一个 this，后面的参数依次传入</p>
+  <p>bind方法：参数参数 this，以及其他参数</p>
+  <h5>32、不同类型的比较</h5>
+  <p>undefined == null</p>
+  <p>undefined(null) 不等于除了 null(undefined) 以外的类型数据</p>
+  <p>NaN != NaN </p>
+  <p>1、数字和其类型比较：其他类型先转为Number类型，再比较</p>
+  <p>2、其他类型比较，先转为 Number 类型，在进行比较</p>
+  <p>String转Number：Number('111')=111</p>
+  <p>String转Number：Number('11a1')=NaN</p>
+  <p>String转Number：Number('')=0</p>
+  <p>String转Number：Number('111111111111111111') 超出范围 16位</p>
+  <p>Null转Number：Number(null)=0</p>
+  <p>Undefined转Number：Number(undefiend)=NaN</p>
+  <p>Boolean转Number：Number(false)=0</p>
+  <p>Boolean转Number：Number(true)=1</p>
+  <p>Array转位Number：Number([''])=0</p>
+  <p>Array转位Number：Number([])=0</p>
+  <p>Array转位Number：Number(['11'])=11</p>
+  <p>Array转位Number：Number(['11d'])=NaN</p>
+  <p>Array转位Number：Number([1,2])=NaN</p>
+  <p>Object/Function转位Number：Number(Object/Function)=NaN</p>
+  <h5>33、ajax详解</h5>
+  <p>创建：new XMLHttpRequest()/ActiveXObject</p>
+  <p>方法：open(type,url,async) </p>
+  <p>方法：send(data) </p>
+  <p>方法：setRequestHeader(key,value) </p>
+  <p>属性：responseText</p>
+  <p>属性：responseXML</p>
+  <p>属性：readyState : 当前步骤</p>
+  <p>属性：status : 返回的状态码</p>
+  <p>事件：onreadyStatechange</p>
+  <h5>34、事件委托</h5>
+  <p>给父节点绑定冒泡事件</p>
+  <p>在事件冒泡的过程中获取到当前事件源，并进行对比</p>
+  <p>如果相等，则执行事件</p>
+  <h5>35、输入网址到页面展示的过程</h5>
+  <p>检查缓存：检查数据对url是否在你浏览器中有缓存(这里的是强制缓存)，并查看是否过期，未过期，直接取缓存渲染</p>
+  <p>发起请求：无缓存或者缓存过期，发起请求</p>
+  <p>dns解析：检查本地hosts映射，获取浏览器的dns缓存/硬盘缓存/路由器缓存，如果没有就去访问dns服务器对ip进行解析</p>
+  <p>访问服务器-交互：三次握手建立连接</p>
+  <p>访问服务器-交互：浏览器发起请求，服务器响应</p>
+  <p>浏览器解析html：解析html文档-->构建dom树-->构建rander树-->渲染rander树</p>
+  <p>浏览器渲染-回流reflow[layout] : 内容、结构、位置、尺寸发生变化触发</p>
+  <p>浏览器渲染-重绘repaint : 背景色、颜色发生变化</p>
+  <p>断开链接：四次挥手断开链接</p>
+  <h5>36、性能优化</h5>
+  <p>1、减少请求：合并css/图片/js、使用字体图标、base64小图标、预加载和按需加载以及懒加载</p>
+  <p>2、使用cdn：根据位置不同获取就近资源</p>
+  <p>3、缓存：静态资源添加缓存</p>
+  <p>4、代码优化：css--最快的方式选择到节点，js---减少dom获取已经操作，避免全局变量和空资源</p>
+  <h5>闭包(优缺点)/原型/原型链/继承/创建对</h5>
+  <p>闭包：函数内部的函数</p>
+  <p>闭包-优点：避免污染全局变量、隔离作用域有自己独立变量</p>
+  <p>闭包-却掉：不容易垃圾回收，消耗内存</p>
+  <p>原型：每一个函数都有一个prototype属性，可以上面定义属性和方法实现继承</p>
+  <p>原型：每一个实例的原型有一个construct函数，指向构造函数</p>
+  <p>继承：函数可以通过原型来实现继承</p>
+  <p>原型链：对象可以通过prototype实现继承，每一个对象都有原型属性，都是指向它继承的对象，这样就形成了一个链结构。最终指向null</p>
+  <h5>37、柯里化及其应用</h5>
+  <p>基于闭包原理，以一个函数为参数，返回一个新的函数</p>
+  <p>优点：有自己的独立变量</p>
+  <p>应用：防抖动、函数节流</p>
+  <h5>38、事件模型</h5>
+  <p>常见一个对象，或者一个类</p>
+  <p>有一个 handlers 数组用于存储函数具柄</p>
+  <p>add 方法，向 handles 里面添加一一对应的函数具柄</p>
+  <p>fire 方法，触发 handles 某一个具柄</p>
+  <h5>39、正则表达式(贪婪模式/惰性)</h5>
+  <p>贪婪模式：尽可能多的匹配 /(a+)/.exec('aaaa') 匹配aaaa</p>
+  <p>惰性模式：尽可能少的匹配 /(a+?)/.exec('aaaa') 匹配a</p>
+  <h5>40、跨域以及跨域方法</h5>
+  <p>在浏览器对服务进行请求对时候，如果发现协议、域名、端口号不同，则为跨域请求资源</p>
+  <p>浏览器特性。同源策略</p>
+  <p>跨域方法：jsonp、postmessage、websocket、后端设置头部</p>
+  <h5>垃圾回收</h5>
+  <p>标记垃圾：基础变量的话，在垃圾回收机制中会标记，如果变量已经使用完成无用之后，标记等待回收</p>
+  <p>计数：对于引用类型，会计算引用类型的引用次数，0 则回收</p>
+
+  <h5>41、前端趋势</h5>
+  <p>原生应用开发：RN、Fluter</p>
+  <p>桌面应用开发：electron</p>
+  <p>PWA进渐式开发</p>
+  <p>web端：三大框架</p>
+
+  <h5>42、react-key作用</h5>
+  <p>在渲染列表的时候，用key做标记，在添加或减少的时候不至于从新渲染</p>
+  <h5>43、setState发生什么</h5>
+  <p>在setState之后，合并原来的状态，触发调和过程(创建虚拟dom，进行比较,不同则重新渲染)</p>
+  <h5>44、虚拟dom如何对比</h5>
+  <p>同级进行对比</p>
+  <p>元素名称/组件名称不同，直接重新渲染</p>
+  <p>如果相同，向子组件重复对比</p>
+  <p>列表元素如果有key，匹配key元素进行对比</p>
+  <h5>react-vue区别</h5>
+  <p>开发模式不同：一个jsx，一个模版</p>
+  <p>更新机制不同：setState、双向绑定</p>
+  <p>事件模式不同：一个是订阅发布、一个是直接引用</p>
+  <p>react比较灵活(什么都可以是组件)、vue比较格式化</p>
+  <h5>react-新技术</h5>
+  <p>hook技术--类似数据双向绑定，不需要手动setState</p>
+  <p>lazy技术</p>
+
+  <script>
+
+    var arr = [343, 435, 23, 345, 234, 766, 436, 235, 578, 34, 56, 1, 57, 3]
+
+
+
+
+
+  </script>
+</body>
+</html>

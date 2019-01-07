@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <script>
+    const data = {
+      object:[
+        '对象是否是同一个对象/可以扩展/冻结',
+        '对象扩展',
+        '创建新对象',
+        '返回键值对数组',
+        '返回所有key/value',
+        '得到所有自己拥有对属性名称',
+        '设置/定义某一对象对某一个属性',
+        '返回对象原型',
+        '设置某一个对象原型',
+        '监听某一个对象',
+        'toString的各个转换',
+      ],
+      es6_es7_es8:[
+        'let/const',
+        '字符串模版',
+        '变量解构',
+        'promise',
+        '箭头函数',
+        '模块化',
+        '函数的默认参数',
+        '延展操作',
+        '新增了 symbol/map/set',
+        'async/awate',
+        'async/awate',
+      ],
+      css:[
+      	'匹配顺序',
+      	'权重',
+      	'盒子模型',
+      	'flex布局',
+      ],
+      react_webpack_redux:[
+        'webpack基本用法和原理',
+        'webpack基本配置',
+        '编写loader、plugin 原理',
+        'react 的优势',
+        '创建组件的三种方法，区别',
+        '生命周期',
+        '受控组件哪些,区别',
+        '简述redux，redux的方法以及原理',
+        'react-route 三种渲染模式',
+        'react-route 匹配方式',
+        'react-route 匹配方式',
+        'react 单元测试',
+        'react-key作用',
+        'setState发生什么',
+        'react-vue区别',
+        'diff协调',
+        'react-新技术',
+      ],
+      其他:[
+        '创建对象的方法',
+        '说说模块化，以及区别',
+        '手写简单promise',
+        '手写简单commonjs',
+        '本地缓存以及区别',
+        'http/http2/ajax/tcp详解',
+        '七层网络协议',
+        'HTTP常用报文的实际应用',
+        '网络安全',
+        'cdn、oss、sso以及负载均衡',
+        '缓存详解',
+        '三次握手',
+        'v8 引擎介绍',
+        '事件循环',
+        '执行上下文',
+        '浏览器工作原理',
+        '调用栈和内存栈',
+        '值类型和引用类型',
+        '判断数组',
+        '改变this的方法，区别',
+        '不同类型的比较',
+        'ajax详解',
+        '事件委托和transform的bug',
+        '输入网址到页面展示的过程',
+        '性能优化',
+        '闭包(优缺点)/原型/原型链/继承/创建对',
+        '柯里化及其应用',
+        '事件模型',
+        '正则表达式(贪婪模式/惰性)',
+        '跨域以及跨域方法',
+        '垃圾回收',
+        '前端常用开发模式',
+        '编程方法-函数/对象/过程',
+      ],
+      额外:[
+      	'介绍项目(描述/负责什么/亮点/难点)',
+      	'什么位置学习',
+      	'如何规划大项目',
+      	'优势'
+      ]
+    }
+    var html = ''
+    for(var item in data){
+    	html+=`<h5>${item}</h5>`
+    	data[item].forEach(function(ite) {
+    		html+=`<p>${ite}</p>`
+    	})
+    }
+   
+  </script>
+</head>
+<body>
+ <div id='box'></div>
+ <script type="text/javascript">
+ 	document.getElementById('box').innerHTML=html
+ </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
