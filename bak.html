@@ -3,6 +3,20 @@
 <head>
   <meta charset="UTF-8">
   <title>Title</title>
+    <style type="text/css">
+      body{
+        padding:20px;
+      }
+      h5{
+        font-size: 16px;
+        color: red;
+        border-bottom: 1px solid #ccc;
+      }
+      p{
+        font-size: 14px;
+        color: #666;
+      }
+  </style>
 </head>
 <body>
   <h5>1、es5/es6/es7/es8有哪些变化？</h5>
@@ -301,7 +315,61 @@
   <h5>react-新技术</h5>
   <p>hook技术--类似数据双向绑定，不需要手动setState</p>
   <p>lazy技术</p>
-
+  <h5>检测是否是数组</h5>
+  <p>Array.isArray([])</p>
+  <p>Object.protoytype.toString.call([]) == '[object Object]'</p>
+  <p>[] instanceof Array</p>
+  <p>[].constructor == Array</p>
+  <h5>热更新和热替换</h5>
+  <p>热更新 ：是基于 webpack-dev-server 时候配置 -hot 来实现的，主要是不刷新页面可以更新html</p>
+  <p>热替换 ：只替换改变的模块，在 plugin 中添加 hotModulereplacmentplugin </p>
+  <h5>react-router 三种渲染模式</h5>
+  <p>component : 直接传入组件</p>
+  <p>render: 回调函数(match,loaction,history)=>{retrun div}</p>
+  <p>chrilden : 也会返回一个组件</p>
+  <h5>vuex的创建</h5>
+  <p>vuex.store创建实例</p>
+  <p>参数：state，mutations，actions，getters,moudle,strict</p>
+  <p>gerrter对象，方法可以接受 state 对象 ，返回处理后的 state</p>
+  <p>mutations对象，接收 state ，改变state的值</p>
+  <p>actionsd对象，接收content，store的上下文</p>
+  <h5>vuex实例</h5>
+  <p>1.属性 state，getters</p>
+  <p>2.方法：commit - 用户触发 mutation</p>
+  <p>3.方法 dispatch - 用于触发 actions</p>
+  <p>4.方法 watch 监听状态</p>
+  <p>5.方法 subsribe </p>
+  <h5>vuex 辅助函数</h5>
+  <p>mapState[state.attr] 用computed接受</p>
+  <p>mapGetter[atate.gette] 用computed 接受</p>
+  <p>mapMuatation 用 methed接收</p>
+  <p>mapactions 用methed 接收</p>
+  <h5>vuex 流程</h5>
+  <p>1、mapactions 映射方法，mapstate 映射状态</p>
+  <p>view -- stotre.dispatch(actions) 触发actions</p>
+  <p>actiosn -- 接收参数(content,options) store.commit(muations) 提交mutation改变</p>
+  <p>muations -- 接收 state ，在mutations中改变 state</p>
+  <p>view 重新渲染vue</p>
+  <h5>vue-router 生命周期</h5>
+  <p>1、beforeEach 在 from 的组件中执行</p>
+  <p>2、afterEach </p>
+  <p>3、beforeRouterEnter</p>
+  <p>4、beforeRouterUpdate</p>
+  <p>5、beforeRouterleave</p>
+  <h5>vue双向绑定原理</h5>
+  <p>将数据data进行用observe观察起来(Object.defineProperty劫持对象的事get,set方法)</p>
+  <p>watcher 来将所有的数据观察起来，当依赖的对象触发了 set 方法或者get方法 回去触发 dep 中的 update()</p>
+  <p>数据更新完成之后 ，用 compile 函数更新试图</p>
+  <p>vue 的生命周期</p>
+  <p>beforeCreate 组件未创建</p>
+  <p>Created 组件创建了，未挂载，无 $el</p>
+  <p>beforeMount 未挂载，确定了 $el</p>
+  <p>mounted 挂载了，可以找到 $el</p>
+  <p>beforeupdate</p>
+  <p>updated</p>
+  <p>beforedestry</p>
+  <p>destryed</p>
+  <h5></h5>
   <script>
 
     var arr = [343, 435, 23, 345, 234, 766, 436, 235, 578, 34, 56, 1, 57, 3]
