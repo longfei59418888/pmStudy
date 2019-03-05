@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Draggable Link</title>
+  <meta name="description"
+        content="Drag a link to reconnect it. Nodes have custom Adornments for selection, resizing, and reshaping."/>
+  <!-- Copyright 1998-2018 by Northwoods Software Corporation. -->
+  <meta charset="UTF-8">
+  <style>
+    :focus {
+      outline: none;
+    }
+  </style>
+  <script src="./gojs.js"></script>
+  <script id="code">
+    function init() {
+      var $ = go.GraphObject.make;
+
+      myDiagram =
+        $(go.Diagram, "myDiagramDiv",
+          {
+            // 网格背景
+            grid: $(go.Panel, "Grid",
+              $(go.Shape, "LineH", {stroke: "lightgray", strokeWidth: 0.5}),
+              $(go.Shape, "LineH", {stroke: "gray", strokeWidth: 0.5, interval: 10}),
+              $(go.Shape, "LineV", {stroke: "lightgray", strokeWidth: 0.5}),
+              $(go.Shape, "LineV", {stroke: "gray", strokeWidth: 0.5, interval: 10})
+            ),
+            // layout: $(go.TreeLayout,
+            //   { angle: 90, layerSpacing: 35 }),
+            allowDrop: true,  // 允许拖拽
+            "draggingTool.dragsLink": true,  // 链接到有效端口上
+            "draggingTool.isGridSnapEnabled": true, // 网格动态
+            "linkingTool.isUnconnectedLinkValid": true,
+            "linkingTool.portGravity": 20,
+            "relinkingTool.isUnconnectedLinkValid": true,
+            "relinkingTool.portGravity": 20,
+            "relinkingTool.fromHandleArchetype":
+              $(go.Shape, "Diamond", {
+                segmentIndex: 0,
+                cursor: "pointer",
+                desiredSize: new go.Size(8, 8),
+                fill: "tomato",
+                stroke: "darkred"
+              }),
+            "relinkingTool.toHandleArchetype":
+              $(go.Shape, "Diamond", {
+                segmentIndex: -1,
+                cursor: "pointer",
+                desiredSize: new go.Size(8, 8),
+                fill: "darkred",
+                stroke: "tomato"
+              }),
+            "linkReshapingTool.handleArchetype":
+              $(go.Shape, "Diamond", {desiredSize: new go.Size(7, 7), fill: "lightblue", stroke: "deepskyblue"}),
+            //rotatingTool: $(TopRotatingTool),  // defined below
+            "rotatingTool.snapAngleMultiple": 15,
+            "rotatingTool.snapAngleEpsilon": 15,
+            "undoManager.isEnabled": true
+          });
+
+      // 允许点击save按钮
+      myDiagram.addDiagramListener("Modified", function (e) {
+        var button = document.getElementById("SaveButton");
+        if (button) button.disabled = !myDiagram.isModified;
+        var idx = document.title.indexOf("*");
+        if (myDiagram.isModified) {
+          if (idx < 0) document.title += "*";
+        } else {
+          if (idx >= 0) document.title = document.title.substr(0, idx);
+        }
+      });
+
+      // 插入数据
+      myDiagram.addModelChangedListener(function(evt) {
+        if (!evt.isTransactionFinished) return;
+        var txn = evt.object;  // a Transaction
+        if (txn === null) return;
+        txn.changes.each(function(e) {
+          if (e.modelChange !== "nodeDataArray") return;
+          if((myDiagram.model.nodeDataArray.length>1 && e.newValue && e.newValue.type == 'start' ||
+            myDiagram.model.nodeDataArray.length == 1 && e.newValue &&  e.newValue.type != 'start')){
+            var nodedata=myDiagram.model.findNodeDataForKey(e.newValue.key);
+
+          }
+        });
+      });
+
+      myDiagram.addDiagramListener("ChangedSelection",
+        function(e) {
+          var part = e.subject.part;
+          console.log(part)
+          // myDiagram.remove(part)
+        });
+
+      function makePort(name, spot, output, input) {
+        return $(go.Shape, "Circle",
+          {
+            fill: null,
+            stroke: null,
+            desiredSize: new go.Size(7, 7),
+            alignment: spot,  // 位置
+            alignmentFocus: spot,  // 位置
+            portId: name,  // 名字
+            fromSpot: spot, toSpot: spot,  // 位置的名字
+            fromLinkable: output, toLinkable: input,  // 是否允许接入或者接出
+            cursor: "pointer"  // 样式
+          });
+      }
+
+      // 虚线
+      var nodeSelectionAdornmentTemplate =
+        $(go.Adornment, "Auto",
+          $(go.Shape, {fill: null, stroke: "deepskyblue", strokeWidth: 1.5, strokeDashArray: [4, 2]}),
+          $(go.Placeholder)
+        );
+
+      // 设置 8 个大小设置按钮
+      var nodeResizeAdornmentTemplate =
+        $(go.Adornment, "Spot", // 装饰器
+          {locationSpot: go.Spot.Right},
+          $(go.Placeholder), // 占位符
+          $(go.Shape, {
+            alignment: go.Spot.TopLeft,
+            cursor: "nw-resize",
+            desiredSize: new go.Size(6, 6),
+            fill: "lightblue",
+            stroke: "deepskyblue"
+          }),
+          $(go.Shape, {
+            alignment: go.Spot.Top,
+            cursor: "n-resize",
+            desiredSize: new go.Size(6, 6),
+            fill: "lightblue",
+            stroke: "deepskyblue"
+          }),
+          $(go.Shape, {
+            alignment: go.Spot.TopRight,
+            cursor: "ne-resize",
+            desiredSize: new go.Size(6, 6),
+            fill: "lightblue",
+            stroke: "deepskyblue"
+          }),
+          $(go.Shape, {
+            alignment: go.Spot.Left,
+            cursor: "w-resize",
+            desiredSize: new go.Size(6, 6),
+            fill: "lightblue",
+            stroke: "deepskyblue"
+          }),
+          $(go.Shape, {
+            alignment: go.Spot.Right,
+            cursor: "e-resize",
+            desiredSize: new go.Size(6, 6),
+            fill: "lightblue",
+            stroke: "deepskyblue"
+          }),
+          $(go.Shape, {
+            alignment: go.Spot.BottomLeft,
+            cursor: "se-resize",
+            desiredSize: new go.Size(6, 6),
+            fill: "lightblue",
+            stroke: "deepskyblue"
+          }),
+          $(go.Shape, {
+            alignment: go.Spot.Bottom,
+            cursor: "s-resize",
+            desiredSize: new go.Size(6, 6),
+            fill: "lightblue",
+            stroke: "deepskyblue"
+          }),
+          $(go.Shape, {
+            alignment: go.Spot.BottomRight,
+            cursor: "sw-resize",
+            desiredSize: new go.Size(6, 6),
+            fill: "lightblue",
+            stroke: "deepskyblue"
+          })
+        );
+
+      // 旋转按钮
+      var nodeRotateAdornmentTemplate =
+        $(go.Adornment,
+          {locationSpot: go.Spot.Center, locationObjectName: "CIRCLE"},
+          $(go.Shape, "Circle", {
+            name: "CIRCLE",
+            cursor: "pointer",
+            desiredSize: new go.Size(7, 7),
+            fill: "lightblue",
+            stroke: "deepskyblue"
+          }),
+          $(go.Shape, {
+            geometryString: "M3.5 7 L3.5 30",
+            isGeometryPositioned: true,
+            stroke: "deepskyblue",
+            strokeWidth: 1.5,
+            strokeDashArray: [4, 2]
+          })
+        );
+
+      myDiagram.nodeTemplate =
+        $(go.Node, "Spot",
+          {locationSpot: go.Spot.Center}, // 视口位置
+          new go.Binding("location", "loc", go.Point.parse).makeTwoWay(go.Point.stringify), // 保存位置
+          {selectable: true, selectionAdornmentTemplate: nodeSelectionAdornmentTemplate},// 选中的自定义样式
+          {resizable: true, resizeObjectName: "PANEL", resizeAdornmentTemplate: nodeResizeAdornmentTemplate}, // resize 自定义样式
+          {rotatable: true, rotateAdornmentTemplate: nodeRotateAdornmentTemplate}, // 旋转的的自定义样式
+          new go.Binding("angle").makeTwoWay(), // 保存旋转的值
+          // 设置形状和添加文字
+          $(go.Panel, "Auto",
+            {name: "PANEL"},
+            new go.Binding("desiredSize", "size", go.Size.parse).makeTwoWay(go.Size.stringify), // 设置大小
+            $(go.Shape, "Rectangle",  // node 的形状默认是 Rectangle
+              // 属于 Shape 的Link端口
+              {
+                portId: "", // 默认的端口
+                fromLinkable: true, toLinkable: true, cursor: "pointer", // 默认允许链接
+                fill: "white",  // default color
+                strokeWidth: 1
+              },
+              new go.Binding("figure"), // 形状
+              new go.Binding("fill")),  // 颜色
+            // 文字
+            $(go.TextBlock,
+              {
+                font: "bold 11pt Helvetica, Arial, sans-serif",
+                margin: 8,
+                maxSize: new go.Size(260, NaN),
+                wrap: go.TextBlock.WrapFit,
+                editable: true
+              },
+              new go.Binding("text").makeTwoWay())
+          ),
+          // 添加四个连接口，是属于该 node 的
+          makePort("T", go.Spot.Top, false, true),
+          makePort("L", go.Spot.Left, true, true),
+          makePort("R", go.Spot.Right, true, true),
+          makePort("B", go.Spot.Bottom, true, false),
+          // 绑定事件
+          { // 悬浮展示链接口
+            mouseEnter: function (e, node) {
+              // node.part.canMove = false
+              showSmallPorts(node, true);
+            },
+            mouseLeave: function (e, node) {
+              showSmallPorts(node, false);
+            },
+            mouseDragEnter:function (e,node) {
+              console.log(e,node)
+            }
+          },
+          // tips
+          {
+            toolTip:
+              $(go.Adornment, "Auto",
+                $(go.Shape, {fill: "#FFFFCC"},
+                  new go.Binding("visible", "info", function (i) {
+                    return i ? true : false;
+                  })),
+                $(go.TextBlock, {margin: 4},
+                  new go.Binding("text", "info"))
+              )
+          },
+          // 右键事件
+          {
+            contextMenu:
+              $(go.Adornment, "Vertical",
+                $("ContextMenuButton",
+                  {background: 'red'},
+                  $(go.TextBlock, "设置描述"),
+                  {
+                    click: function (evt, obj) {
+                      changeNodeInfo(obj.part.data,'info','changeInfo')
+                      alert()
+                    }
+                  }),
+                $("ContextMenuButton",
+                  {background: 'red'},
+                  $(go.TextBlock, "设置链接"),
+                  {
+                    click: function (evt, obj) {
+                      console.log(obj.part.data)
+                      alert()
+                    }
+                  })
+              )
+          }
+        );
+
+      function changeNodeInfo(data,key,value){
+        var model =  myDiagram.model
+        model.startTransaction("flash");
+        model.setDataProperty(data, key,value);
+        model.commitTransaction("flash");
+      }
+      function showSmallPorts(node, show) {
+        node.ports.each(function (port) {
+          if (port.portId !== "") {  // don't change the default port, which is the big shape
+            port.fill = show ? "rgba(0,0,0,.3)" : null;
+          }
+        });
+      }
+
+      // 选中的 link 线
+      var linkSelectionAdornmentTemplate =
+        $(go.Adornment, "Link",
+          $(go.Shape,
+            // isPanelMain declares that this Shape shares the Link.geometry
+            {isPanelMain: true, fill: null, stroke: "red", strokeWidth: 0})  // use selection object's strokeWidth
+        );
+
+      myDiagram.linkTemplate =
+        $(go.Link,
+          {selectable: true, selectionAdornmentTemplate: linkSelectionAdornmentTemplate}, // 允许选中，这只选中样式
+          {relinkableFrom: true, relinkableTo: true, reshapable: true}, // 允许改变LInk
+          // 样式
+          {
+            routing: go.Link.AvoidsNodes,
+            curve: go.Link.JumpOver,
+            corner: 5,
+            toShortLength: 4
+          },
+          // 点的位置
+          new go.Binding("points").makeTwoWay(),
+          $(go.Shape,  // 样式
+            {isPanelMain: true, strokeWidth: 2}),
+          $(go.Shape,  // 箭头样式
+            {toArrow: "Standard", stroke: null}),
+          // 设置线上面的文本
+          $(go.Panel, "Auto",
+            $(go.Shape, "RoundedRectangle",  // 形状
+              new go.Binding("fill", 'text', function (v) {
+                return v ? "#F8F8F8" : null
+              }),
+              {stroke: null, fill: null}),
+            $(go.TextBlock,
+              {
+                segmentIndex: 1,
+                segmentFraction: .5,
+                textAlign: "center",
+                font: "10pt helvetica, arial, sans-serif",
+                stroke: "red",
+                margin: 2,
+                minSize: new go.Size(10, NaN),
+                editable: true
+              },
+              new go.Binding("text").makeTwoWay())
+          )
+        );
+
+      load();  // 加载初始文件
+
+      // 初始化工具栏目
+      var myPalette =
+        $(go.Palette, "myPaletteDiv",
+          {
+            maxSelectionCount: 1,
+            nodeTemplateMap: myDiagram.nodeTemplateMap,  // 使用 myDiagram.nodeTemplateMap 作为模版
+            linkTemplate: // 自定义 Link
+              $(go.Link,
+                {
+                  locationSpot: go.Spot.Center,
+                  selectionAdornmentTemplate:
+                    $(go.Adornment, "Link",
+                      {locationSpot: go.Spot.Center},
+                      $(go.Shape,
+                        {isPanelMain: true, fill: null, stroke: "deepskyblue", strokeWidth: 0}),
+                      $(go.Shape,
+                        {toArrow: "Standard", stroke: null})
+                    )
+                },
+                {
+                  routing: go.Link.AvoidsNodes,
+                  curve: go.Link.JumpOver,
+                  corner: 5,
+                  toShortLength: 4
+                },
+                new go.Binding("points"),
+                $(go.Shape,
+                  {isPanelMain: true, strokeWidth: 2}),
+                $(go.Shape,
+                  {toArrow: "Standard", stroke: null})
+              ),
+            // 工具栏初始工具列表
+            model: new go.GraphLinksModel([
+              {text: "Start", figure: "Ellipse", fill: "#00AD5F", info: '' , type:'start'},
+              {text: "Step", info: ''},
+              {text: "if", figure: "Diamond", fill: "lightskyblue", info: 'test'},
+              {text: "End", figure: "Ellipse", fill: "#CE0620", info: ''},
+              {text: "Comment", figure: "RoundedRectangle", fill: "lightyellow"}
+            ], [
+              // {points: new go.List(go.Point).addAll([new go.Point(0, 0), new go.Point(30, 0), new go.Point(30, 40), new go.Point(60, 40)])}
+            ])
+          });
+    }
+
+
+    // 重写旋转的
+    function TopRotatingTool() {
+      go.RotatingTool.call(this);
+    }
+
+    go.Diagram.inherit(TopRotatingTool, go.RotatingTool);
+    /** @override */
+    TopRotatingTool.prototype.updateAdornments = function (part) {
+      go.RotatingTool.prototype.updateAdornments.call(this, part);
+      var adornment = part.findAdornment("Rotating");
+      if (adornment !== null) {
+        adornment.location = part.rotateObject.getDocumentPoint(new go.Spot(0.5, 0, 0, -30));  // above middle top
+      }
+    };
+    /** @override */
+    TopRotatingTool.prototype.rotate = function (newangle) {
+      go.RotatingTool.prototype.rotate.call(this, newangle + 90);
+    };
+
+
+    // 保存数据
+    function save() {
+      myDiagram.model.modelData.position = go.Point.stringify(myDiagram.position);
+      var data = myDiagram.model.toJson();
+      document.getElementById("mySavedModel").value = data;
+    }
+
+    function load() {
+
+      myDiagram.model = go.Model.fromJson(document.getElementById("mySavedModel").value);
+      loadDiagramProperties();  // do this after the Model.modelData has been brought into memory
+    }
+
+    function loadDiagramProperties(e) {
+      // set Diagram.initialPosition, not Diagram.position, to handle initialization side-effects
+      var pos = myDiagram.model.modelData.position;
+      if (pos) myDiagram.initialPosition = go.Point.parse(pos);
+    }
+  </script>
+</head>
+<body onload="init()">
+<div id="sample">
+  <div style="width: 100%; display: flex; justify-content: space-between">
+    <div id="myPaletteDiv"
+         style="width: 105px; margin-right: 2px; background-color: whitesmoke; border: solid 1px black"></div>
+    <div id="myDiagramDiv" style="flex-grow: 1; height: 620px; border: solid 1px black"></div>
+  </div>
+  <div>
+    <div>
+      <button id="SaveButton" onclick="save()">Save</button>
+      <button onclick="load()">Load</button>
+      Diagram Model saved in JSON format:
+    </div>
+    <textarea id="mySavedModel" style="width:100%;height:300px">
+{ "class": "go.GraphLinksModel",
+  "linkFromPortIdProperty": "fromPort",
+  "linkToPortIdProperty": "toPort",
+  "nodeDataArray": [
+ ],
+  "linkDataArray": [
+ ]}
+    </textarea>
+  </div>
+</div>
+</body>
+</html>

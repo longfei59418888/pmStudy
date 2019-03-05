@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <script src="http://zhonganphp-1251460743.cossh.myqcloud.com/a00000/common_js/gojs.js"></script>
+</head>
+<body>
+<div id="myDiagramDiv"
+     style="width:800px; height:550px; background-color: #DAE4E4;"></div>
+<script>
+
+  var test = { "class": "GraphLinksModel",
+    "copiesKey": false,
+    "linkFromPortIdProperty": "fromPort",
+    "linkToPortIdProperty": "toPort",
+    "modelData": {"position":"-598 -310"},
+    "nodeDataArray": [
+    {"text":"Start", "figure":"Ellipse", "fill":"#00AD5F", "info":"", "key":-1, },
+    {"text":"if", "figure":"Diamond", "fill":"lightskyblue", "info":"test", "key":-2, }
+  ],
+    "linkDataArray": [ {"from":-1, "to":-2, "fromPort":"B", "toPort":"L",} ]}
+
+  // 用于创建对象node 、Diagram 、plan 、image 、TextBlock
+  var $ = go.GraphObject.make;
+  // 创建一个 Diagram
+  var myDiagram = $(go.Diagram, document.getElementById('"myDiagramDiv"'), {
+    "undoManager.isEnabled": true,
+    "grid.visible": true,
+    "allowDragOut": true,
+    "allowTextEdit": true,
+
+    layout: $(go.TreeLayout,
+      { angle: 90, layerSpacing: 35 })
+  });
+
+  // 定义一个 node 模版
+  myDiagram.nodeTemplate =
+    $(go.Node, "Auto",
+      {resizable: true,rotatable: true, locationSpot: go.Spot.Center },
+      new go.Binding("location", "loc", go.Point.parse),
+      // new go.Binding("location", "loc", go.Point.parse).makeTwoWay(),
+      // 节点的背景
+      {background: "#eee"},
+      // node 节点的形状
+      $(go.Shape, 'RoundedRectangle', {fill:'#ddd',stroke:'#333',strokeWidth:2}),
+      $(go.Panel, 'Position',
+        $(go.Shape, "Ellipse", {
+          column: 1, row: 0, width: 6, height: 6, portId: "A", toLinkable: true,fill:'#aaa',
+          stroke: "#aaa", position: new go.Point(50, 0), strokeWidth: 2
+        }),
+        $(go.Shape, "Ellipse", {
+          column: 1, row: 0, width: 6, height: 6, portId: "C", toLinkable: true,fromLinkable: true ,fill:'#aaa',
+          stroke: "#aaa", position: new go.Point(0, 50), strokeWidth: 2
+        }),
+        $(go.Shape, "Ellipse", {
+          column: 1, row: 0, width: 6, height: 6, portId: "D", toLinkable: true,fromLinkable: true ,fill:'#aaa',
+          stroke: "#aaa", position: new go.Point(50, 100), strokeWidth: 2
+        }),
+        $(go.Shape, "Ellipse", {
+          column: 1, row: 0, width: 6, height: 6, portId: "B", toLinkable: true,fromLinkable: true ,fill:'#aaa',
+          stroke: "#aaa", position: new go.Point(100, 50), strokeWidth: 2
+        }),
+        $(go.TextBlock, {margin: 12, stroke: "white", font: "bold 16px sans-serif"},
+          new go.Binding("text", "name")),
+      ),
+      {
+        toolTip:
+          $(go.Adornment, "Auto",
+            $(go.Shape, { fill: "#FFFFCC" },
+              new go.Binding("visible", "info", function(i) { return i ? true : false; })),
+            $(go.TextBlock, { margin: 4 },
+              new go.Binding("text", "info"))
+          )
+      },
+      // 右键事件
+      {
+        contextMenu:     // define a context menu for each node
+          $(go.Adornment, "Vertical",  // that has one button
+            $("ContextMenuButton",
+              $(go.TextBlock, "Change Color"),
+              { click: changeColor })
+            // more ContextMenuButtons would go here
+          )  // end Adornment
+      }
+      // $(go.Panel,'Table',
+      //   $(go.Shape, "Ellipse",{column:1,row:0,width:5,height:5,portId:"B",toLinkable:true,alignment:go.Spot.Top,
+      //     stroke: "#ccc",position: new go.Point(100, 0),strokeWidth:2}),
+      //   $(go.RowColumnDefinition,{column:0,row:1,alignment:go.Spot.Left}),
+      //   $(go.RowColumnDefinition,{column:2,row:1,alignment:go.Spot.Left}),
+      //   $(go.RowColumnDefinition,{column:1,row:2,alignment:go.Spot.Left}),
+      //   $(go.TextBlock,{column:1,row:1,alignment:go.Spot.Center,
+      //     margin: 12, stroke: "white", font: "bold 16px sans-serif"},
+      //     new go.Binding("text", "name")),
+      //
+      // ),
+
+
+    );
+  function changeColor(){
+    alert()
+  }
+  // 创建 link 的样式
+  myDiagram.linkTemplate =
+    $(go.Link,
+      // 路由方式 go.Link.AvoidsNodes  避免交叉
+      // 路由起点和结束位置  fromSpot:go.Spot.Left,toSpot:go.Spot.Right
+      // corner 圆角
+      {routing: go.Link.Orthogonal, corner: 5, fromSpot: go.Spot.Right, toSpot: go.Spot.Left},
+      // {curve：go.Link.Bezier}，   // Bezier曲线  JumpOver 交叉位置跳过
+      $(go.Shape),
+      $(go.Shape,
+        {toArrow: "OpenTriangle", stroke: '#555', strokeWidth: 3}),
+      // 线上标签
+      // segmentIndex 第几个转折点
+      // segmentFraction 转折点相对位置
+      // segmentOffset new go.Point(0, -10) 位置的相对位置
+      $(go.TextBlock, 'from', {
+          segmentIndex: 1,
+          segmentFraction: .5,
+          background: '#fff',
+          stroke: "red",
+          font: "bold 16px sans-serif"
+        },
+        new go.Binding("text", "text"))
+    )
+  //创建一个模型
+  var myModel = $(go.TreeModel);
+  // in the model data, each node is represented by a JavaScript object:
+  myModel.nodeDataArray = [
+    {key: 1, name: "Don Meow", text: "cat1.png", loc: "0 0",info:'tips'},
+    {key: 2, parent: 1, name: "Don Meow", text: "cat1.png", loc: "100 150",info:''},
+    {key: 2, parent: 1, name: "Don Meow", text: "cat1.png", loc: "50 350",info:''},
+  ];
+  myDiagram.model = myModel;
+
+  //改变数据
+  // setTimeout(()=>{
+  //   var model =  myDiagram.model
+  //   model.startTransaction("flash");
+  //   var data = model.nodeDataArray[0];  // get the first node data
+  //   model.setDataProperty(data, "name",'xiao');
+  //
+  //   // getToKeyForLinkData 设置链接Link
+  //
+  //   model.commitTransaction("flash");
+  // },3000)
+
+  // function getNodeInfo() {
+  //   var model =  myDiagram.model
+  //   model.startTransaction("shift node");
+  //   var data = model.nodeDataArray[1];  // get the first node data
+  //   var node = myDiagram.findNodeForData(data);   // find the corresponding Node
+  //   var p = node.location.copy();  // make a copy of the location, a Point
+  //   console.log(p)
+  //   model.commitTransaction("shift node");
+  // }
+
+  // myDiagram.addModelChangedListener(function(evt) {
+  //   if (!evt.isTransactionFinished) return;
+  //   console.log(evt)
+  //   return true
+  // });
+
+  // setTimeout(()=>{
+  //   getNodeInfo()
+  // },200)
+
+</script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
