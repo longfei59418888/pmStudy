@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<div id="app">
+  <div v-if="a">{{showIs}}22{{a}}</div>
+  <div v-for="item in items">{{item}}</div>
+  <test-tt/>
+</div>
+<script src="vue.js"></script>
+<script>
+
+  var VueInfo = {}
+  var ComInfo = {}
+  Vue.filter('dost',function (input) {
+    return input
+  })
+  var com = Vue.component('test-tt',{
+
+    name:'test',
+    template:'<div>dd</div>',
+  });
+  var vm = new Vue({
+    el:'#app',
+    data:{
+      a:1,
+      items : [1,2],
+      showIs:2
+    }
+  })
+  Object.getOwnPropertyNames(Vue).forEach((item)=>{
+    VueInfo[item] = Vue[item]
+  })
+  Object.getOwnPropertyNames(com).forEach((item)=>{
+    ComInfo[item] = com[item]
+  })
+  // console.log(VueInfo)
+  // console.log(Vue.prototype)
+  console.log(vm)
+  // console.log(ComInfo)
+
+
+  // 组件
+
+  /*
+  * 全局组件
+  * 可以在所有的所有子组件中使用
+  * 将组件直接绑定到 Vue 上面
+  * Vue.component(name,componentOption);
+  * 利用 Vue 的静态函数 component 来创建
+  * */
+
+  /*
+  * 局部组件
+  * 只能在当前组件中使用
+  * {data:function(){},methods:{},component:{ name:componentOption }}
+  * 创建组件的时候通过 components 传参来实现创建
+  * */
+
+
+  // 插槽
+  /*
+  * 默认数据
+  * */
+  var template = `
+    <MyComponent>
+      content
+    </MyComponent>
+  `
+  var MyComponent = {
+    template:`
+      <div>
+        <slot>defaultContent</slot>
+      </div>
+    `
+  }
+  /*
+  * 具有名称的插槽
+  * 需用 template 的 v-slot 属性实现
+  * */
+  var template = `
+    <MyComponent>
+      <template v-slot:head>head</template>
+      <template v-slot:foot>foot</template>
+    </MyComponent>
+  `
+  var MyComponent = {
+    template:`
+      <div>
+        <slot name="head">defaultContent</slot>
+        <slot name="foot">defaultContent</slot>
+      </div>
+    `
+  }
+
+  /*
+  * 作用域插槽
+  * 插槽的内部的数据给父级组件
+  * 组件得到属性 user -->  slot 将 user 传入 template 中
+  * */
+  var template = `
+    <MyComponent :user="user">
+      <template v-slot:head="head">head{{head.user}}</template>
+      <template v-slot:foot="foot">foot{{foot.user}}</template>
+    </MyComponent>
+  `
+  var MyComponent = {
+    props:['user'],
+    template:`
+      <div>
+        <slot :user="user" name="head">defaultContent</slot>
+        <slot :user="user" name="foot">defaultContent</slot>
+      </div>
+    `
+  }
+
+
+  /*
+  *
+  * _f 是过期器函数                       _s(_f(filterName)(exp))
+  * _s 对 {{}} 内对象进行解析              _s(exp)
+  *
+  * */
+
+</script>
+</body>
+</html>
