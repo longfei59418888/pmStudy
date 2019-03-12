@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <script src="vue.js"></script>
+</head>
+<body>
+
+  <h3>实例</h3>
+  <h5>参数 options:</h5>
+  <p>data -- Object -- 数据</p>
+  <p>computed -- Object -- 计算属性</p>
+  <p>methods -- Object -- 方法</p>
+  <p>watch -- Object -- 监听属性</p>
+  <p>watch -- Object -- 监听属性</p>
+  <h5>返回对象:</h5>
+  <p></p>
+  <h3>组件</h3>
+  <h5>参数 options:</h5>
+  <p>data -- Function -- 函数，返回数据</p>
+
+
+  <script>
+    /*
+    * Vue 实例
+    * 1、创建实例
+    * 2、参数数据和方法
+    * 3、计算属性和监听属性
+    * 4、生命周期钩子函数
+    *
+    * */
+    const vm = new Vue({
+      el:'#app', // 挂在节点
+      data:{},  // 对象
+      methods:{}, // 方法
+      computed:{}, // 计算属性
+      watch:{},    // 监听属性
+      created(){}, // 生命周期
+    })
+
+    /*
+    * Vue 组件基础
+    * 1、创建全局组件
+    * 2、数据
+    * 3、接受夫层数据
+    * 4、动态组件
+    *
+    * 5、局部组件
+    * */
+
+    const com = new Vue.component({
+      props:[], // 接受属性
+      data(){return{}}, // 必须是函数
+      template:'<component v-bind:is="currentTabComponent"></component>', // 动态组件 currentTabComponent 组件名称
+
+      components:{
+        componentA:{ //局部组件 componentA,传入组件对象
+          data(){return{}}
+        }
+      }
+    })
+
+    /*
+    * 插槽
+    * 1、插槽内容
+    * 2、作用域 -- 和当前模版作用域相同
+    * 3、slot作用域 -- 需要使用 template 来接收
+    * */
+
+    `<span><slot v-bind:user="user"></slot></span>` // 插槽内传入user
+      // template 接收user
+    ` <current-user><template v-slot:default="slotProps">{{ slotProps.user.firstName }}</template></current-user>`
+
+    /*
+    * 指令
+    * 1、钩子函数
+    * 2、钩子函数参数
+    * */
+
+    Vue.directive('focus',{
+      // 被绑定的元素，插入到父节点
+      inserted(el,bind,vnode,oldVnode){
+        // el:元素
+        // bind:指令属性对象
+        // bind:指令属性对象
+      },
+      // 调用一次，指令绑定到元素时候调用
+      bind(){},
+      // 更新时候调用
+      update(){},
+      // 更新结束后调用
+      componentUpdated(){},
+      // 解除绑定后调用
+      unbind(){},
+    })
+
+
+
+
+
+
+
+
+
+
+
+
+
+  </script>
+</body>
+</html>

@@ -13,16 +13,16 @@
 <script src="vue.js"></script>
 <script>
 
-  var VueInfo = {}
-  var ComInfo = {}
-  Vue.filter('dost',function (input) {
-    return input
-  })
-  var com = Vue.component('test-tt',{
-
-    name:'test',
-    template:'<div>dd</div>',
-  });
+  // var VueInfo = {}
+  // var ComInfo = {}
+  // Vue.filter('dost',function (input) {
+  //   return input
+  // })
+  // var com = Vue.component('test-tt',{
+  //
+  //   name:'test',
+  //   template:'<div>dd</div>',
+  // });
   var vm = new Vue({
     el:'#app',
     data:{
@@ -31,12 +31,12 @@
       showIs:2
     }
   })
-  Object.getOwnPropertyNames(Vue).forEach((item)=>{
-    VueInfo[item] = Vue[item]
-  })
-  Object.getOwnPropertyNames(com).forEach((item)=>{
-    ComInfo[item] = com[item]
-  })
+  // Object.getOwnPropertyNames(Vue).forEach((item)=>{
+  //   VueInfo[item] = Vue[item]
+  // })
+  // Object.getOwnPropertyNames(com).forEach((item)=>{
+  //   ComInfo[item] = com[item]
+  // })
   // console.log(VueInfo)
   // console.log(Vue.prototype)
   console.log(vm)
