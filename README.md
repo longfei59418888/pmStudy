@@ -1,2 +1,2 @@
 # pmStudy
-![Image](https://github.com/longfei59418888/pmStudy/blob/master/1561646401.jpg)
+![alt](https://github.com/longfei59418888/xl_city_choose/blob/master/gitImage/1547460059295.jpg?raw=true)
