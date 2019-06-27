@@ -1,5 +1,6 @@
 
 module.exports = {
+  mode:'development',
   entry: {
     bundle1: './main.js',
   },

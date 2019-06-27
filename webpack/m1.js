@@ -1,6 +1,7 @@
 
-
-export const test = {test:1}
-export default {
-  a:1
-}
+define([],function () {
+  const test = {
+    a:1
+  }
+  return test
+})
