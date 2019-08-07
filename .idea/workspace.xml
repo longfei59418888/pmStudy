@@ -2,6 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="096472e5-7e59-4652-9e63-fcd72fc257e3" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bak.html" beforeDir="false" afterPath="$PROJECT_DIR$/bak.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/info.html" beforeDir="false" afterPath="$PROJECT_DIR$/info.html" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -16,6 +18,15 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/webpack/main.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="25">
+              <caret line="1" column="21" selection-start-line="1" selection-start-column="21" selection-end-line="1" selection-end-column="21" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/webpack/tst.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="125">
@@ -27,76 +38,26 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/webpack/webpack.config.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="50">
-              <caret line="2" column="21" selection-start-line="2" selection-start-column="21" selection-end-line="2" selection-end-column="21" />
+            <state relative-caret-position="250">
+              <caret line="10" selection-start-line="10" selection-end-line="10" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/webpack/dist/bundle1.min.js">
+        <entry file="file://$PROJECT_DIR$/info.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3000">
-              <caret line="120" column="8" selection-start-line="120" selection-start-column="8" selection-end-line="120" selection-end-column="8" />
+            <state relative-caret-position="264">
+              <caret line="102" column="24" selection-start-line="102" selection-start-column="17" selection-end-line="102" selection-end-column="24" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/vue/vue.js">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/bak.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="95600">
-              <caret line="4637" column="20" selection-start-line="4637" selection-start-column="20" selection-end-line="4637" selection-end-column="20" />
-              <folding>
-                <element signature="e#14824#14850#0" />
-                <element signature="e#14904#14933#0" />
-                <element signature="e#14978#15034#0" />
-                <element signature="e#15079#15230#0" />
-                <element signature="e#15451#15530#0" />
-                <element signature="e#15554#15591#0" />
-                <element signature="e#15720#16354#0" />
-                <element signature="e#17162#17923#0" />
-                <element signature="e#17961#18112#0" />
-                <element signature="e#18428#19022#0" />
-                <element signature="e#19697#20007#0" />
-                <element signature="e#20199#20327#0" />
-                <element signature="e#20436#20516#0" />
-                <element signature="e#21239#21694#0" />
-                <element signature="e#21696#21747#0" />
-                <element signature="e#21823#23087#0" />
-                <element signature="e#23261#23925#0" />
-                <element signature="e#24016#24475#0" />
-                <element signature="e#24656#24845#0" />
-                <element signature="e#25462#25835#0" />
-                <element signature="e#25910#27020#0" />
-                <element signature="e#27079#27480#0" />
-                <element signature="e#27579#27739#0" />
-                <element signature="e#28048#28253#0" />
-                <element signature="e#28507#29185#0" />
-                <element signature="e#29336#29589#0" />
-                <element signature="e#29703#29769#0" />
-                <element signature="e#29843#29922#0" />
-                <element signature="e#29962#30404#0" />
-                <element signature="e#30534#31303#0" />
-                <element signature="e#31405#32034#0" />
-                <element signature="e#32140#32350#0" />
-                <element signature="e#32396#32579#0" />
-                <element signature="e#32743#33526#0" />
-                <element signature="e#33727#34418#0" />
-                <element signature="e#34494#35273#0" />
-                <element signature="e#35364#36330#0" />
-                <element signature="e#36439#37429#0" />
-                <element signature="e#37531#38078#0" />
-                <element signature="e#38256#38353#0" />
-                <element signature="e#38382#38625#0" />
-                <element signature="e#38672#39137#0" />
-                <element signature="e#39182#39386#0" />
-                <element signature="e#39422#39651#0" />
-                <element signature="e#39759#39905#0" />
-                <element signature="e#42571#43083#0" />
-                <element signature="e#43651#45758#0" />
-                <element signature="e#46078#46521#0" />
-              </folding>
+            <state relative-caret-position="129">
+              <caret line="303" column="25" lean-forward="true" selection-start-line="303" selection-start-column="25" selection-end-line="303" selection-end-column="25" />
             </state>
           </provider>
         </entry>
@@ -109,35 +70,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/flowchart/devserver.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="450">
-              <caret line="18" column="34" selection-start-line="18" selection-start-column="34" selection-end-line="18" selection-end-column="34" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/webpack/m1.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="125">
-              <caret line="5" column="13" lean-forward="true" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/info.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="139">
-              <caret line="95" column="32" lean-forward="true" selection-start-line="95" selection-start-column="32" selection-end-line="95" selection-end-column="32" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/webpack/m2.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="100">
-              <caret line="4" lean-forward="true" selection-start-line="4" selection-end-line="4" />
+            <state relative-caret-position="400">
+              <caret line="16" column="53" selection-start-line="16" selection-start-column="53" selection-end-line="16" selection-end-column="53" />
             </state>
           </provider>
         </entry>
@@ -154,7 +88,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>baseOptions</find>
       <find>= pluckModuleFunction(opt</find>
       <find>createCompilerCreator</find>
       <find>transformNode</find>
@@ -184,6 +117,7 @@
       <find>$mount</find>
       <find>component</find>
       <find>vue$</find>
+      <find>错误</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -192,7 +126,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/bak.html" />
         <option value="$PROJECT_DIR$/info" />
         <option value="$PROJECT_DIR$/typescript.html" />
         <option value="$PROJECT_DIR$/vue/vue.bak.js" />
@@ -204,11 +137,12 @@
         <option value="$PROJECT_DIR$/webpack/components/a.vue" />
         <option value="$PROJECT_DIR$/vue/study.html" />
         <option value="$PROJECT_DIR$/webpack/bundle.js" />
-        <option value="$PROJECT_DIR$/webpack/webpack.config.js" />
         <option value="$PROJECT_DIR$/webpack/tst.html" />
         <option value="$PROJECT_DIR$/webpack/m1.js" />
         <option value="$PROJECT_DIR$/webpack/main.js" />
+        <option value="$PROJECT_DIR$/webpack/webpack.config.js" />
         <option value="$PROJECT_DIR$/info.html" />
+        <option value="$PROJECT_DIR$/bak.html" />
       </list>
     </option>
   </component>
@@ -238,7 +172,7 @@
             <path>
               <item name="pmStudy" type="b2602c69:ProjectViewProjectNode" />
               <item name="pmStudy" type="462c0819:PsiDirectoryNode" />
-              <item name="webpack" type="462c0819:PsiDirectoryNode" />
+              <item name="cases" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -297,12 +231,13 @@
       <workItem from="1552271217260" duration="8160000" />
       <workItem from="1553157122987" duration="1823000" />
       <workItem from="1553483248700" duration="1058000" />
-      <workItem from="1564040582767" duration="342000" />
+      <workItem from="1564040582767" duration="10870000" />
+      <workItem from="1565151452556" duration="173000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="73187000" />
+    <option name="totallyTimeSpent" value="83888000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -382,13 +317,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/bak.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="380">
-          <caret line="20" column="6" selection-start-line="20" selection-start-column="6" selection-end-line="20" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/flowchart/index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="300">
@@ -428,37 +356,45 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/webpack/main.min.js" />
-    <entry file="file://$PROJECT_DIR$/webpack/main.js">
+    <entry file="file://$PROJECT_DIR$/webpack/m2.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="25">
-          <caret line="1" column="21" selection-start-line="1" selection-start-column="21" selection-end-line="1" selection-end-column="21" />
+        <state relative-caret-position="100">
+          <caret line="4" lean-forward="true" selection-start-line="4" selection-end-line="4" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/webpack/tst.html">
+    <entry file="file://$PROJECT_DIR$/webpack/bundle1.min.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="490">
+          <caret line="119" column="14" selection-start-line="119" selection-end-line="119" selection-end-column="14" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/1561646428.jpg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/1561646759.jpg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/1561646401.jpg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/1561646808.jpg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/webpack/m1.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="125">
-          <caret line="5" column="33" selection-start-line="5" selection-start-column="33" selection-end-line="5" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/webpack/webpack.config.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="50">
-          <caret line="2" column="21" selection-start-line="2" selection-start-column="21" selection-end-line="2" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/webpack/dist/bundle1.min.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3000">
-          <caret line="120" column="8" selection-start-line="120" selection-start-column="8" selection-end-line="120" selection-end-column="8" />
+          <caret line="5" column="13" lean-forward="true" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/vue/vue.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="95600">
+        <state relative-caret-position="1490">
           <caret line="4637" column="20" selection-start-line="4637" selection-start-column="20" selection-end-line="4637" selection-end-column="20" />
           <folding>
             <element signature="e#14824#14850#0" />
@@ -513,44 +449,58 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/cases/Eache/wenjian.txt">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/webpack/dist/bundle1.min.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="365">
+          <caret line="120" column="8" selection-start-line="120" selection-start-column="8" selection-end-line="120" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/webpack/main.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="25">
+          <caret line="1" column="21" selection-start-line="1" selection-start-column="21" selection-end-line="1" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/webpack/tst.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="125">
+          <caret line="5" column="33" selection-start-line="5" selection-start-column="33" selection-end-line="5" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/flowchart/index.js">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/flowchart/devserver.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="450">
-          <caret line="18" column="34" selection-start-line="18" selection-start-column="34" selection-end-line="18" selection-end-column="34" />
+        <state relative-caret-position="400">
+          <caret line="16" column="53" selection-start-line="16" selection-start-column="53" selection-end-line="16" selection-end-column="53" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/webpack/m2.js">
+    <entry file="file://$PROJECT_DIR$/webpack/webpack.config.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="100">
-          <caret line="4" lean-forward="true" selection-start-line="4" selection-end-line="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/webpack/bundle1.min.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="490">
-          <caret line="119" column="14" selection-start-line="119" selection-end-line="119" selection-end-column="14" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/webpack/m1.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="125">
-          <caret line="5" column="13" lean-forward="true" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+        <state relative-caret-position="250">
+          <caret line="10" selection-start-line="10" selection-end-line="10" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/info.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="139">
-          <caret line="95" column="32" lean-forward="true" selection-start-line="95" selection-start-column="32" selection-end-line="95" selection-end-column="32" />
+        <state relative-caret-position="264">
+          <caret line="102" column="24" selection-start-line="102" selection-start-column="17" selection-end-line="102" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bak.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="129">
+          <caret line="303" column="25" lean-forward="true" selection-start-line="303" selection-start-column="25" selection-end-line="303" selection-end-column="25" />
         </state>
       </provider>
     </entry>
