@@ -47,8 +47,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/info.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="264">
-              <caret line="102" column="24" selection-start-line="102" selection-start-column="17" selection-end-line="102" selection-end-column="24" />
+            <state relative-caret-position="265">
+              <caret line="67" column="32" selection-start-line="67" selection-start-column="25" selection-end-line="67" selection-end-column="32" />
             </state>
           </provider>
         </entry>
@@ -56,8 +56,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/bak.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="129">
-              <caret line="303" column="25" lean-forward="true" selection-start-line="303" selection-start-column="25" selection-end-line="303" selection-end-column="25" />
+            <state relative-caret-position="404">
+              <caret line="125" column="61" lean-forward="true" selection-start-line="125" selection-start-column="61" selection-end-line="125" selection-end-column="61" />
             </state>
           </provider>
         </entry>
@@ -169,11 +169,6 @@
               <item name="pmStudy" type="b2602c69:ProjectViewProjectNode" />
               <item name="pmStudy" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="pmStudy" type="b2602c69:ProjectViewProjectNode" />
-              <item name="pmStudy" type="462c0819:PsiDirectoryNode" />
-              <item name="cases" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
@@ -232,12 +227,14 @@
       <workItem from="1553157122987" duration="1823000" />
       <workItem from="1553483248700" duration="1058000" />
       <workItem from="1564040582767" duration="10870000" />
-      <workItem from="1565151452556" duration="173000" />
+      <workItem from="1565151452556" duration="273000" />
+      <workItem from="1565839178213" duration="2326000" />
+      <workItem from="1565848984922" duration="481000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="83888000" />
+    <option name="totallyTimeSpent" value="86795000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -473,6 +470,13 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/webpack/webpack.config.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="250">
+          <caret line="10" selection-start-line="10" selection-end-line="10" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/flowchart/index.js">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -483,24 +487,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/webpack/webpack.config.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="250">
-          <caret line="10" selection-start-line="10" selection-end-line="10" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/info.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="264">
-          <caret line="102" column="24" selection-start-line="102" selection-start-column="17" selection-end-line="102" selection-end-column="24" />
+        <state relative-caret-position="265">
+          <caret line="67" column="32" selection-start-line="67" selection-start-column="25" selection-end-line="67" selection-end-column="32" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/bak.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="129">
-          <caret line="303" column="25" lean-forward="true" selection-start-line="303" selection-start-column="25" selection-end-line="303" selection-end-column="25" />
+        <state relative-caret-position="404">
+          <caret line="125" column="61" lean-forward="true" selection-start-line="125" selection-start-column="61" selection-end-line="125" selection-end-column="61" />
         </state>
       </provider>
     </entry>
