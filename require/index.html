@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no,minimal-ui">
+</head>
+<body>
+<!--<canvas id="canvas"></canvas>-->
+<div id="app"></div>
+<script src="https://cdn.staticfile.org/react/16.4.0/umd/react.development.js"></script>
+<script src="https://cdn.staticfile.org/react-dom/16.4.0/umd/react-dom.development.js"></script>
+<script src="https://cdn.staticfile.org/babel-standalone/6.26.0/babel.min.js"></script>
+<script src="./require.js"></script>
+<script type="text/babel">
+    requirejs.config({
+        baseUrl:"",
+        map:{},
+        paths: {
+            C: 'common',
+            zepto: 'libs/zepto',
+            zepto_core: 'libs/zepto-core',
+            touch: 'libs/touch',
+            deferred: 'libs/deferred',
+            data: 'libs/data',
+            fx: 'libs/fx',
+            "selector": "libs/selector",
+            callbacks: 'libs/callbacks',
+            navigatorPrint: 'libs/fingerprint',
+            underscore: 'libs/underscore-min',
+            dialog:'dialog',
+            carousel_image:'libs/carousel-image',
+            vue: 'libs/vue',
+            vuex: 'libs/vuex',
+            view: 'js/common/view',
+            iscroll:'libs/iscroll-probe',
+            html5:'libs/html5.min',
+            pinyin: 'http://cdn-daikuan.360jie.com.cn/pic/1f09a0f9bd46467a3287042fec365438'
+        },
+        shim: {
+            'touch': {
+                deps: ['zepto_core'],
+                exports: '$'
+            },
+            'callbacks': {
+                deps: ['zepto_core'],
+                exports: '$'
+            },
+            'deferred': {
+                deps: ['callbacks'],
+                exports: '$'
+            },
+            'data': {
+                deps: ['zepto_core'],
+                exports: '$'
+            },
+            'fx': {
+                deps: ['zepto_core'],
+                exports: '$'
+            },
+            'selector': {
+                deps: ['zepto_core'],
+                exports: '$'
+            }
+        }
+    });
+    require(["C"],function (C){
+        console.log(C)
+        C.read()
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,27 @@
+
+1、Module.prototype  fecth 加载文件
+2、req.load(context,moduleName,url)
+moduleName ： 模块名称或者路径
+3、执行加载的模块js
+define(['./test2.js'],function () {
+    return {
+        test:1,
+        read:function () {
+            console.log(2)
+        }
+    }
+})
+define = function (name, deps, callback)
+名称，依赖，回调
+context.defQueue.push([name, deps, callback]);
+context.defQueueMap[name] = true;
+加入队列中
+遍历获取模块
+while (defQueue.length)
+callGetModule(args);
+
+4、执行脚本
+check: function ()
+exports = context.execCb(id, factory, depExports, exports);
+
+
