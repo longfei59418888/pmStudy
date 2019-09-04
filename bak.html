@@ -66,12 +66,17 @@
   <h5>4、手写简单的promise</h5>
   <pre>
     class Promises{
-      constructor(func){
-        this.func = func
-      }
-      then(resolve,reject){
-        this.func(resolve,reject)
-      }
+        constructor(func){
+            this.func = func
+            // 微任务
+            setTimeout(()=>{
+                this.func(this.resolve,this.reject)
+            },0)
+        }
+        then(resolve,reject){
+            this.resolve = resolve
+            this.reject = reject
+        }
     }
   </pre>
   <h5>5、手写简单的模块化</h5>
