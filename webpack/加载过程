@@ -1,0 +1,27 @@
+
+1、初始化的时候
+所有的加载的模块都缓存在
+var installedModules = {};  路径名称的形式为key
+
+2、调用其他模块的时候require
+执行 __webpack_require__(moduleId)
+moduleId即路径名称 installedModules.moduleId 获得
+installedModules.moduleId 不存在会去 modules 查找
+最后返回模块的 module.exports
+
+3、动态加载import(chunkID)
+chunkID : 自动生成的ID号，也就是文件名称
+__webpack_require__.e(chunkID)
+该方法通过 script 加载文件
+installedChunks[chunkId] = [resolve, reject]; 后续执行完整可以调用resolve
+要加载的文件 (window["webpackJsonp"] = window["webpackJsonp"] || []).push([[1],{chunkID:fun}
+window["webpackJsonp"] = webpackJsonpCallback(data)
+modules[moduleId] = moreModules[moduleId]; 添加动态加载的模块到 modules 中
+resolves.shift()(); 执行resolve动态模块返回的promise执行then
+__webpack_require__.bind(null, chunkID)
+then里面执行的 __webpack_require__ 加载模块的方法
+回到 2 的执行过程
+
+
+
+
