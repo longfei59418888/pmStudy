@@ -5,6 +5,7 @@ module.exports = {
     bundle1: './main.js',
   },
   output: {
+    // filename: '[name]-[chunkhash:8].min.js'
     filename: '[name].min.js'
   }
 }

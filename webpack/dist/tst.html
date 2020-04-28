@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script>
+    window.start = new Date().getTime()
+    document.head.appendChild = function (dom) {
+        getScript(dom.src, function (text) {
+            dom.removeAttribute('src')
+            dom.text = text
+            document.head.insertBefore(dom, document.head.lastChild);
+            dom.onload()
+            dom.parentNode.removeChild(dom)
+        })
+    }
+    function getScript(url, bak) {
+        let list = localStorage.getItem('src_list') || null
+        list = list ? JSON.parse(list) : {}
+        if (list[url]) {
+            bak && bak(list[url])
+            return
+        }
+        var xhr = new XMLHttpRequest();
+        xhr.onreadystatechange = function () {
+            if (xhr.readyState == 4 && xhr.status == 200) {
+                list[url] = xhr.responseText
+                localStorage.setItem('src_list', JSON.stringify(list))
+                bak(xhr.responseText)
+            }
+        }
+        xhr.open("GET", url, true);
+        xhr.send(null);
+    }
+    function addScript(url, bak) {
+        var script = document.createElement('script');
+        script.charset = 'utf-8';
+        script.timeout = 120;
+        getScript(url, function (text) {
+            script.text = text
+            document.head.insertBefore(script, document.head.lastChild);
+            bak && bak()
+            script.parentNode.removeChild(script)
+        })
+    }
+    addScript('bundle1.min.js')
+    document.getElementById('id').out()
+
+</script>
+<!--<script src="bundle1.min.js"></script>-->
+</body>
+</html>

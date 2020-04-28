@@ -3,8 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-    <script src="dist/bundle1.min.js"></script>
+    <!--<script src="dist/bundle1.min.js"></script>-->
 </head>
+<script>
+    var test = [1,2,3]
+    Array.prototype.splice.apply(test,[1,1,5,8,9])
+    console.log(test)
+</script>
 <body>
 
 </body>

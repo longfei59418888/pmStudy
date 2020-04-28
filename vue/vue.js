@@ -2654,7 +2654,6 @@ function lifecycleMixin (Vue) {
     }
     // updated hook is called by the scheduler to ensure that children are
     // updated in a parent's updated hook.
-    debugger
   };
 
   Vue.prototype.$forceUpdate = function () {
@@ -4775,6 +4774,7 @@ var KeepAlive = {
 
   render: function render () {
     var slot = this.$slots.default;
+    debugger
     var vnode = getFirstComponentChild(slot);
     var componentOptions = vnode && vnode.componentOptions;
     if (componentOptions) {

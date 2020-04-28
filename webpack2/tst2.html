@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="./acorn.js"></script>
+</head>
+<script>
+    acorn.tokTypes
+    const Parse = acorn.Parser.extend(Parser => {
+        return  (function (Parser) {
+            function Parse() {}
+            Parse.prototype = Object.create(Parser);
+            return Parse
+        })(Parser)
+    })
+    const str = new acorn.Parser({
+        sourceType: 'module'
+    }, `var a = 1 + 1`).parse()
+    console.log(str)
+</script>
+<body>
+
+</body>
+</html>

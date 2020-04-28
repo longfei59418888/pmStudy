@@ -6,9 +6,12 @@
 </head>
 <body>
 <div id="app">
-  <div v-if="a">{{showIs}}22{{a}}</div>
-  <div v-for="item in items">{{item}}</div>
-  <test-tt/>
+  <Keep-alive>
+    <test-tt/>
+    <!--<div v-if="a">{{showIs}}22{{a}}</div>-->
+    <!--<div v-for="item in items">{{item}}</div>-->
+
+  </Keep-alive>
 </div>
 <script src="vue.js"></script>
 <script>
@@ -18,11 +21,11 @@
   // Vue.filter('dost',function (input) {
   //   return input
   // })
-  // var com = Vue.component('test-tt',{
-  //
-  //   name:'test',
-  //   template:'<div>dd</div>',
-  // });
+  var com = Vue.component('test-tt',{
+
+    name:'test',
+    template:'<div>dd</div>',
+  });
   var vm = new Vue({
     el:'#app',
     data:{
@@ -39,7 +42,7 @@
   // })
   // console.log(VueInfo)
   // console.log(Vue.prototype)
-  console.log(vm)
+  // console.log(vm)
   // console.log(ComInfo)
 
 
