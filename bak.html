@@ -411,6 +411,82 @@
   <p>从氛围上面讲，当然是需要整个氛围是积极向上的，能把团队的工作/项目当成一件很有意义的事来完成</p>
   <p>在产品上面讲，希望做的产品有很大的发展空间，产品对整个行业，整个社会都有提升</p>
   <p>从内部关系讲，希望内部和谐，彼此公司里公司外可以多交流</p>
+  <p>
+    <pre>
+
+    // 深拷贝
+    var _depCopy = function (source) {
+        switch (Object.prototype.toString(source)) {
+            case '[object Array]':
+                return source.map(item => {
+                    return _depCopy(item)
+                })
+                break;
+            case '[object Function]':
+                const fun = eval(source.toString())
+                fun.prototype = source.prototype
+                return fun
+                break;
+            case '[object Object]':
+                const target = {}
+                for (const [key, value] of Object.entries(source)) {
+                    target[key] = _depCopy(value)
+                }
+                return target
+                break
+            default:
+                return source
+
+        }
+    };
+
+    // reduce
+    Array.prototype._reduces = function () {
+        let [callBack, init] = arguments
+        const {length} = this
+        let index = 0
+        if (init === undefined) {
+            init = this[0]
+            index = 1
+        }
+        while (index < length) {
+            init = callBack && callBack(init, this[index])
+            index++
+        }
+        return init
+
+    }
+
+    // 防抖动
+    function debounce() {
+        let [fun, time] = arguments
+        let loop;
+        return function () {
+            if (loop) clearTimeout(loop)
+            loop = setTimeout(() => {
+                fun.apply(this, arguments)
+            }, time)
+        }
+    }
+
+    // 节流器
+    function throttle() {
+        let [fun, time] = arguments
+        let loop = null;
+        return function () {
+            if (loop) return
+            loop = setTimeout(() => {
+                fun.apply(this, arguments)
+                loop = null
+            }, time)
+        }
+    }
+
+
+
+
+  </pre>
+  </p>
   <script>
 
     var arr = [343, 435, 23, 345, 234, 766, 436, 235, 578, 34, 56, 1, 57, 3]
