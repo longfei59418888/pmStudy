@@ -1,7 +1,6 @@
 # ignore .svn
 #
 .svn
-
 .idea/
 node_modules/
 SDK_v5/node_modules/

@@ -2,13 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="096472e5-7e59-4652-9e63-fcd72fc257e3" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bak.html" beforeDir="false" afterPath="$PROJECT_DIR$/bak.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/egg/one.md" beforeDir="false" afterPath="$PROJECT_DIR$/egg/one.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/info.html" beforeDir="false" afterPath="$PROJECT_DIR$/info.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test1.js" beforeDir="false" afterPath="$PROJECT_DIR$/test1.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -26,6 +21,13 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GithubPullRequestsUISettings">
+    <option name="hiddenUrls">
+      <set>
+        <option value="git@github.com:longfei59418888/pmStudy.git" />
+      </set>
+    </option>
   </component>
   <component name="JsFlowSettings">
     <service-enabled>true</service-enabled>
@@ -152,6 +154,8 @@
       <workItem from="1588819306337" duration="14967000" />
       <workItem from="1590482623543" duration="3627000" />
       <workItem from="1590546294667" duration="2733000" />
+      <workItem from="1590677603412" duration="1776000" />
+      <workItem from="1591260043423" duration="150000" />
     </task>
     <servers />
   </component>
@@ -163,10 +167,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="927" height="466" key="DebuggerActiveHint/0.0.1920.1040@0.0.1920.1040" timestamp="1587890887980" />
-    <state x="740" y="275" key="FileChooserDialogImpl" timestamp="1590486540278">
+    <state x="740" y="275" key="FileChooserDialogImpl" timestamp="1590678299289">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="740" y="275" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1590486540278" />
+    <state x="740" y="275" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1590678299289" />
     <state width="1899" height="459" key="GridCell.Tab.0.bottom" timestamp="1589004194301">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -231,6 +235,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1899" height="459" key="GridCell.Tab.3.right/0.0.1920.1040@0.0.1920.1040" timestamp="1589004194302" />
+    <state x="752" y="437" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1591260140163">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="752" y="437" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1040@0.0.1920.1040" timestamp="1591260140163" />
     <state x="636" y="253" width="647" height="534" key="find.popup" timestamp="1588217986288">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
