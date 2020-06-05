@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="096472e5-7e59-4652-9e63-fcd72fc257e3" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+    <list default="true" id="096472e5-7e59-4652-9e63-fcd72fc257e3" name="Default" comment="test">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -46,7 +45,7 @@
     <property name="JavaScriptWeakerCompletionTypeGuess" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="D:/gitee/gitflow_start" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -155,22 +154,40 @@
       <workItem from="1590482623543" duration="3627000" />
       <workItem from="1590546294667" duration="2733000" />
       <workItem from="1590677603412" duration="1776000" />
-      <workItem from="1591260043423" duration="150000" />
+      <workItem from="1591260043423" duration="794000" />
     </task>
+    <task id="LOCAL-00001" summary="test">
+      <created>1591260378100</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1591260378100</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
   </component>
+  <component name="VcsManagerConfiguration">
+    <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
+    <option name="CHECK_NEW_TODO" value="false" />
+    <MESSAGE value="test" />
+    <option name="LAST_COMMIT_MESSAGE" value="test" />
+  </component>
   <component name="WindowStateProjectService">
+    <state x="594" y="112" key="CommitChangelistDialog2" timestamp="1591260527911">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="594" y="112" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1591260527911" />
     <state width="927" height="466" key="DebuggerActiveHint" timestamp="1587890887980">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="927" height="466" key="DebuggerActiveHint/0.0.1920.1040@0.0.1920.1040" timestamp="1587890887980" />
-    <state x="740" y="275" key="FileChooserDialogImpl" timestamp="1590678299289">
+    <state x="740" y="275" key="FileChooserDialogImpl" timestamp="1591260834935">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="740" y="275" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1590678299289" />
+    <state x="740" y="275" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1591260834935" />
     <state width="1899" height="459" key="GridCell.Tab.0.bottom" timestamp="1589004194301">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -235,6 +252,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1899" height="459" key="GridCell.Tab.3.right/0.0.1920.1040@0.0.1920.1040" timestamp="1589004194302" />
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1591260645730">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1591260645730" />
     <state x="752" y="437" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1591260140163">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -243,6 +264,14 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="636" y="253" width="647" height="534" key="find.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1588217986288" />
+    <state x="655" y="311" key="git4idea.merge.GitPullDialog" timestamp="1591260779735">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="655" y="311" key="git4idea.merge.GitPullDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1591260779735" />
+    <state x="769" y="414" key="git4idea.ui.GitResetDialog" timestamp="1591260608943">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="769" y="414" key="git4idea.ui.GitResetDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1591260608943" />
     <state x="616" y="240" key="run.anything.popup" timestamp="1587718459222">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
